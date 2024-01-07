@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!--
+   F-Zero: Maximum Velocity Password Generator
+   Copyright (C) 2024-present WaluigiBSOD (waluigibsod.github.io)
+   
+   This file is part of F-Zero: Maximum Velocity Password Generator.
+   
+   F-Zero: Maximum Velocity Password Generator is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   F-Zero: Maximum Velocity Password Generator is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		
+		<title>F-Zero: Maximum Velocity Password Generator</title>
+	</head>
+	
+	<body>
+		<h1 id="title">Now Loading</h1>
+
+		<h2 id="version" onmouseenter="if (typeof _SetVersionDate === 'function') _SetVersionDate()" onmouseleave="if (typeof _SetVersion === 'function') _SetVersion()">...</h2>
+		
+		<br>
+		
+		<br>
+		
+		<script type="text/javascript" src="js/constants.js"></script>
+		
+		<script type="text/javascript" src="js/flags.js"></script>
+		
+		<script type="text/javascript" src="js/io.js"></script>
+		
+		<script type="text/javascript" src="js/check.js"></script>
+		
+		<script type="text/javascript" src="js/keyboard.js"></script>
+		
+		<script type="text/javascript" src="js/dijkstra.js"></script>
+		
+		<script type="text/javascript" src="js/password.js"></script>
+		
+		<script type="text/javascript" src="js/generator.js"></script>
+		
+		<div align="center" class="main">
+			
+			<input type="text" autocomplete="off" id="name" class="name" size="13" maxlength="8" onclick="if (typeof _ResetInput === 'function') _ResetInput()" oninput="if (typeof _CheckPlayerName === 'function') _CheckPlayerName()" value=""></input>
+			<p id="error" class="error"><br>Enter player name</p>
+			
+			<table id="result" class="result" style="display: none;">
+			</table>
+			
+		</div>
+		
+		<script type="text/javascript" src="js/result.js"></script>
+		
+		<script type="text/javascript" src="js/info.js"></script>
+	</body>
+</html>
