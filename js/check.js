@@ -20,26 +20,29 @@
 
 function _CheckPlayerName() {
 	var PlayerName = document.getElementById("name").value;
-	var PlayerNameChanged = false;
+	
+	// Removal of anything except printable ASCII characters
+	
+	PlayerName = PlayerName.replace("/[\u{0000}-\u{001F}\u{007F}-\u{FFFF}]/gu","");
+	
+	// Processing
 	
 	PlayerName = PlayerName.toUpperCase();
 	
 	if (PlayerName.length == 8)
-		while (PlayerName.charAt(PlayerName.length - 1) == " ") {
+		while (PlayerName.charAt(PlayerName.length - 1) == " ")
 			PlayerName = PlayerName.slice(0,PlayerName.length - 1);
-				
-			PlayerNameChanged = true;
-		}
 	
 	for (var i=0;i<PlayerName.length;i++)
 		if (PlayerNameAlphabet.indexOf(PlayerName.charAt(i)) == -1) {
-			PlayerName = PlayerName.replace(PlayerName.charAt(i),"");
+			PlayerName = PlayerName.slice(0,i) + PlayerName.slice(i + 1,PlayerName.length);
 			
-			PlayerNameChanged = true;
+			i--;
 		}
 	
 	document.getElementById("name").value = PlayerName;
 	
-	if (!PlayerNameChanged)
-		_GeneratePassword(PlayerName);
+	// Generation
+	
+	_GeneratePassword(PlayerName);
 }

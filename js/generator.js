@@ -107,15 +107,8 @@ function _SpaceSequence(Length) {
 	return retSPACES;
 }
 
-function _GeneratePassword(PlayerName = "") {
+function _GeneratePassword(PlayerName) {
 	ValidPlayerName = false;
-	
-	if (PlayerName == "")
-		PlayerName = document.getElementById("name").value;
-	
-	PlayerName = PlayerName.toUpperCase();
-	
-	document.getElementById("name").value = PlayerName;
 	
 	if (PlayerName.length > 0 && PlayerName != _SpaceSequence(PlayerName.length)) {
 		var FinalResult = _ComputeBestJetVermilionPassword(PlayerName);
@@ -128,11 +121,6 @@ function _GeneratePassword(PlayerName = "") {
 		_ShowResult();
 		
 		ValidPlayerName = true;
-	} else {
-		document.getElementById("name").value = document.getElementById("name").value.toUpperCase();
-		
+	} else
 		_WriteError("Enter player name",true);
-		
-		return;
-	}
 }
