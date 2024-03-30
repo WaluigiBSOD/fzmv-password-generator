@@ -20,8 +20,8 @@
 
 const Title = "F-Zero: Maximum Velocity Password Generator";
 
-const Version = "1.1";
-const VersionDate = "24 January 2024";
+const Version = "1.1.1";
+const VersionDate = "30 March 2024";
 
 // Functions
 

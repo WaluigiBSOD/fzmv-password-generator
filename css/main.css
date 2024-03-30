@@ -36,7 +36,7 @@ hr {
 
 input.name {
 	font-family: "Lucida Console", monospace;
-	text-align: center;
+	text-align: left;
 	transform: scale(3);
 }
 
