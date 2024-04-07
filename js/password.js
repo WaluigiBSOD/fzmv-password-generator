@@ -103,7 +103,7 @@ function _BufferToBase32(Buffer) {
 		CurrentPasswordCharacter = 0;
 		
 		for (j=0;j<5;j++) {
-			CurrentPasswordCharacter *= 2;
+			CurrentPasswordCharacter <<= 1;
 			
 			CurrentPasswordCharacter += _GetBit(Buffer,(i * 5) + j);
 		}
@@ -139,5 +139,5 @@ function _GenerateJetVermilionPassword(PlayerName, Seed) {
 	
 	// And finally, the buffer is output as a Base 32 number using a custom alphabet.
 	
-	return _BufferToBase32(PasswordBuffer)
+	return _BufferToBase32(PasswordBuffer);
 }

@@ -10,7 +10,7 @@ Note: these steps won't work for save files where Jet Vermilion has already been
 2. Select Start and then Grand Prix mode.
 3. While on the machine selection screen, press in sequence **L, R, Start, R, L, Select**. A screen named Password with no music in the background should appear.
 5. Open [https://waluigibsod.github.io/fzmv-password-generator/](https://waluigibsod.github.io/fzmv-password-generator/).
-6. Enter the player name on the website.
+6. Enter the player name on the website (e.g. `WALUIGI`).
 7. Enter the generated password in-game (remember that the keyboard cursor wraps around both horizontally and vertically), then press O.K. at the end. A jingle should confirm a correct entry before being sent back to the machine selection screen.
 
 ## Program
