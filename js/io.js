@@ -30,15 +30,3 @@ function _WriteError(CurrentError = "", Prompt = false) {
 		else
 			document.getElementById("error").innerHTML += ": " + CurrentError;
 }
-
-function _ResetInput() {
-	if (ValidPlayerName) {
-		document.getElementById("name").value = "";
-		
-		_WriteError("Enter player name",true);
-	}
-}
-
-// To be executed
-
-_ResetInput();
