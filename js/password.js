@@ -21,15 +21,15 @@
 function _SwapBit(Buffer, IndexX, IndexY) {
 	// It's "res_xchg_bit" in the leaked source code of the game.
 	
-	var ElementX = Math.floor(IndexX / 8);
-	var BitX = 7 - (IndexX % 8);
+	var ElementX = IndexX >> 3;
+	var BitX = 7 - (IndexX & 0x7);
 	
-	var ElementY = Math.floor(IndexY / 8);
-	var BitY = 7 - (IndexY % 8);
+	var ElementY = IndexY >> 3;
+	var BitY = 7 - (IndexY & 0x7);
 	
 	// A bit swap is performed only if the bits to swap are different.
 	
-	if (ElementX < Buffer.length && ElementY < Buffer.length && ((((Buffer[ElementX] & (1 << BitX)) >> BitX) + ((Buffer[ElementY] & (1 << BitY)) >> BitY)) & 0x1)) {
+	if (ElementX < Buffer.length && ElementY < Buffer.length && (((Buffer[ElementX] & (1 << BitX)) >> BitX) ^ ((Buffer[ElementY] & (1 << BitY)) >> BitY))) {
 		Buffer[ElementX] ^= 1 << BitX;
 		Buffer[ElementY] ^= 1 << BitY;
 	}
@@ -38,8 +38,8 @@ function _SwapBit(Buffer, IndexX, IndexY) {
 function _GetBit(Buffer, Index) {
 	// It's "res_get_bit" in the leaked source code of the game.
 	
-	var Element = Math.floor(Index / 8);
-	var Bit = 7 - (Index % 8);
+	var Element = Index >> 3;
+	var Bit = 7 - (Index & 0x7);
 	
 	if (Element < Buffer.length && (Buffer[Element] & (1 << Bit)))
 		return 1;
@@ -50,7 +50,7 @@ function _GetBit(Buffer, Index) {
 function _SelfInvertibleScrambleBitsForJetVermilion(Buffer) {
 	// It's "res_xchg_pattern04" in the leaked source code of the game.
 	
-	var j = Math.floor((Buffer.length * 8) / 6);
+	var j = Math.floor((Buffer.length << 3) / 6);
 	var k = j;
 	
 	for (var i=0;i<j;i++) {
@@ -67,7 +67,7 @@ function _CompressPlayerName(Name) {
 	
 	var PreparedPlayerName = Array(8);
 	
-	// Printable character compression.
+	// Printable characters compression.
 	
 	for (var i=0;i<8;i++)
 		if (i < Name.length)

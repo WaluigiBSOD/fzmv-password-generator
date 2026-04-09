@@ -109,7 +109,7 @@ function _CacheMinimumLengthsDijkstra() {
 	
 	// Handling of O.K. and CANCEL.
 	//
-	// Actually we only need to handle only the route from everythting in the Base32 alphabet to O.K., in a hardcoded way.
+	// Actually we only need to handle only the route from everything in the Base32 alphabet to O.K., in a hardcoded way.
 	
 	var CurrentCharacter;
 	
@@ -117,9 +117,9 @@ function _CacheMinimumLengthsDijkstra() {
 		CurrentCharacter = PasswordBase32Alphabet.charAt(i);
 		
 		if (_IsCharacterAlphabetic(CurrentCharacter) || CurrentCharacter == "?" || CurrentCharacter == "=")
-			retCACHE[_FindOffsetInKeyboard1D(CurrentCharacter)][_FindOffsetInKeyboard1D("O.K.")] = 1;
+			retCACHE[_FindOffsetInKeyboard1D(CurrentCharacter)][OffsetInKeyboard1D_OK] = 1;
 		else if (_IsCharacterNumeric(CurrentCharacter) || CurrentCharacter == "-" || CurrentCharacter == "+")
-			retCACHE[_FindOffsetInKeyboard1D(CurrentCharacter)][_FindOffsetInKeyboard1D("O.K.")] = 2;
+			retCACHE[_FindOffsetInKeyboard1D(CurrentCharacter)][OffsetInKeyboard1D_OK] = 2;
 	}
 	
 	return retCACHE;

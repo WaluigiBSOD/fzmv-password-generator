@@ -30,7 +30,7 @@ function _ComputeJetVermilionPasswordScoreDijkstraPrimitive(Password) {
 	
 	var retSCORE = 0;
 	
-	var PrecedentCharacter = _FindOffsetInKeyboard1D("A");
+	var PrecedentCharacter = OffsetInKeyboard1D_A;
 	var CurrentCharacter;
 	
 	for (var i=0;i<Password.length;i++) {
@@ -41,7 +41,7 @@ function _ComputeJetVermilionPasswordScoreDijkstraPrimitive(Password) {
 		PrecedentCharacter = CurrentCharacter;
 	}
 	
-	retSCORE += KeyboardLengthsLookupTable[PrecedentCharacter][_FindOffsetInKeyboard1D("O.K.")];
+	retSCORE += KeyboardLengthsLookupTable[PrecedentCharacter][OffsetInKeyboard1D_OK];
 	
 	// Adding the effect of A button presses.
 	

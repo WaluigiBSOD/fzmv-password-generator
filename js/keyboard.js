@@ -42,14 +42,6 @@ const KeyboardLayout2D = [
 
 // Functions
 
-function _ExistsInKeyboard1D(CharacterToFind) {
-	for (var i=0;i<KeyboardLayout1D.length;i++)
-		if (KeyboardLayout1D[i] == CharacterToFind)
-			return true;
-	
-	return false;
-}
-
 function _ExistsInKeyboard2D(CharacterToFind) {
 	var i;
 	var j;
@@ -96,6 +88,10 @@ function _FindOffsetInKeyboard2D(CharacterToFind) {
 	return retOFFSET;
 }
 
+const OffsetInKeyboard1D_A =  _FindOffsetInKeyboard1D("A");
+const OffsetInKeyboard1D_OK = _FindOffsetInKeyboard1D("O.K.");
+const OffsetInKeyboard1D_SP = _FindOffsetInKeyboard1D("SP");
+
 function _ComputeKeyboardAdjacencyMatrix() {
 	var retMATRIX = [...Array(KeyboardLayout1D.length)].map(e => Array(KeyboardLayout1D.length));
 	
@@ -132,7 +128,7 @@ function _ComputeKeyboardAdjacencyMatrix() {
 					//
 					// The O.K./CANCEL block is seen just as a funnel that lengthens vertical wraparounds by 1.
 					
-					retMATRIX[i][_FindOffsetInKeyboard1D("SP")] = 2;
+					retMATRIX[i][OffsetInKeyboard1D_SP] = 2;
 				}
 			} else {
 				// Rule GREEN + all the rest.
@@ -149,7 +145,7 @@ function _ComputeKeyboardAdjacencyMatrix() {
 			if (CurrentCoordinates2D[0] == 2 && CurrentCoordinates2D[1] > 16) {
 				// Rule YELLOW
 				
-				retMATRIX[i][_FindOffsetInKeyboard1D("SP")] = 1;
+				retMATRIX[i][OffsetInKeyboard1D_SP] = 1;
 			} else if (CurrentCoordinates2D[0] == 3) {
 				// Rule LIGHT BLUE
 				//
